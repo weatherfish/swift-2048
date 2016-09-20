@@ -3,7 +3,7 @@
 //  swift-2048
 //
 //  Created by Austin Zheng on 6/3/14.
-//  Copyright (c) 2014 Austin Zheng. All rights reserved.
+//  Copyright (c) 2014 Austin Zheng. Released under the terms of the MIT license.
 //
 
 import UIKit
@@ -101,8 +101,8 @@ class NumberTileGameViewController : UIViewController, GameModelProtocol {
     func yPositionForViewAtPosition(order: Int, views: [UIView]) -> CGFloat {
       assert(views.count > 0)
       assert(order >= 0 && order < views.count)
-      let viewHeight = views[order].bounds.size.height
-      let totalHeight = CGFloat(views.count - 1)*viewPadding + views.map({ $0.bounds.size.height }).reduce(verticalViewOffset, { $0 + $1 })
+//      let viewHeight = views[order].bounds.size.height
+      let totalHeight = CGFloat(views.count - 1)*viewPadding + views.map({ $0.bounds.size.height }).reduce(verticalViewOffset, combine: { $0 + $1 })
       let viewsTop = 0.5*(vcHeight - totalHeight) >= 0 ? 0.5*(vcHeight - totalHeight) : 0
 
       // Not sure how to slice an array yet
@@ -136,12 +136,12 @@ class NumberTileGameViewController : UIViewController, GameModelProtocol {
 
     var f = scoreView.frame
     f.origin.x = xPositionToCenterView(scoreView)
-    f.origin.y = yPositionForViewAtPosition(0, views)
+    f.origin.y = yPositionForViewAtPosition(0, views: views)
     scoreView.frame = f
 
     f = gameboard.frame
     f.origin.x = xPositionToCenterView(gameboard)
-    f.origin.y = yPositionForViewAtPosition(1, views)
+    f.origin.y = yPositionForViewAtPosition(1, views: views)
     gameboard.frame = f
 
 
@@ -161,7 +161,7 @@ class NumberTileGameViewController : UIViewController, GameModelProtocol {
   func followUp() {
     assert(model != nil)
     let m = model!
-    let (userWon, winningCoords) = m.userHasWon()
+    let (userWon, _) = m.userHasWon()
     if userWon {
       // TODO: alert delegate we won
       let alertView = UIAlertView()

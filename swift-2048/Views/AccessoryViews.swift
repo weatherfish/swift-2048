@@ -3,7 +3,7 @@
 //  swift-2048
 //
 //  Created by Austin Zheng on 6/4/14.
-//  Copyright (c) 2014 Austin Zheng. All rights reserved.
+//  Copyright (c) 2014 Austin Zheng. Released under the terms of the MIT license.
 //
 
 import UIKit
@@ -14,10 +14,10 @@ protocol ScoreViewProtocol {
 
 /// A simple view that displays the player's score.
 class ScoreView : UIView, ScoreViewProtocol {
-  var score: Int = 0 {
-  didSet {
-    label.text = "SCORE: \(score)"
-  }
+  var score : Int = 0 {
+    didSet {
+      label.text = "SCORE: \(score)"
+    }
   }
 
   let defaultFrame = CGRectMake(0, 0, 140, 40)

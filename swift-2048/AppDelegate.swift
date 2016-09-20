@@ -3,7 +3,7 @@
 //  swift-2048
 //
 //  Created by Austin Zheng on 6/3/14.
-//  Copyright (c) 2014 Austin Zheng. All rights reserved.
+//  Copyright (c) 2014 Austin Zheng. Released under the terms of the MIT license.
 //
 
 import UIKit
@@ -13,9 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             
   var window: UIWindow?
 
-
-  func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
-    // Override point for customization after application launch.
+  func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
     return true
   }
 
@@ -40,7 +38,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillTerminate(application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
-
-
 }
 
